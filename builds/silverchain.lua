@@ -6,10 +6,10 @@ function silver_chain_organize()
         src = "src",
         project_short_cut = PROJECT_NAME,
         tags = { 
-------------------DECLARATIONS
+------------------DECLARATIONS-------------------------------------------
             "typedef",
             "fdeclare", 
-------------------IMPLEMENTATIONS
+------------------IMPLEMENTATIONS-------------------------------------------
             "struct", 
             "fdefine"
 
@@ -18,9 +18,11 @@ function silver_chain_organize()
         src = "wrappers",
         project_short_cut = PROJECT_NAME,
         tags = { 
-------------------DECLARATIONS
+------------------DECLARATIONS-------------------------------------------
+            "depdeclae", 
             "fdeclare", 
-------------------IMPLEMENTATIONS
+------------------IMPLEMENTATIONS-------------------------------------------
+            "depdefine",
             "fdefine"
 
     }})
