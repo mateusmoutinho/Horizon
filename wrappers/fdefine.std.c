@@ -1,11 +1,24 @@
 //silver_chain_scope_start
 //mannaged by silver chain: https://github.com/OUIsolutions/SilverChain
 #include "imports/imports.fdeclare.h"
-
-
-
-
 //silver_chain_scope_end
+
+
+
+#if defined(horizon_stdarg) 
+    #include horizon_stdarg
+#endif 
+
+#if defined(horizon_stdio) 
+    #include horizon_stdio
+#endif 
+
+#if defined(horizon_stdlib) 
+    #include horizon_stdlib
+#endif 
+
+
+
 
 void * horizondeps_malloc(void *ctxt, long size){
     return malloc(size);

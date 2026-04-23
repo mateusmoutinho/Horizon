@@ -4,10 +4,6 @@
 //silver_chain_scope_end
 
 
-/*
-
 #include "../../dependencies/CArgvParseOne.c"
 #include "../../dependencies/CWebStudioOne.c"
 #include "../../dependencies/BearHttpsClientOne.c"
-
-*/
