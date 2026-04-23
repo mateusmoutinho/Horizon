@@ -19,8 +19,7 @@ function silver_chain_organize()
         project_short_cut = PROJECT_NAME,
         tags = { 
 ------------------DECLARATIONS-------------------------------------------
-            "depdeclae", 
-            "fdeclare", 
+            "depdeclare", 
 ------------------IMPLEMENTATIONS-------------------------------------------
             "depdefine",
             "fdefine"
