@@ -8,6 +8,7 @@ function silver_chain_organize()
         tags = { 
 ------------------DECLARATIONS-------------------------------------------
             "typedef",
+            "macro",
             "fdeclare", 
 ------------------IMPLEMENTATIONS-------------------------------------------
             "struct", 
