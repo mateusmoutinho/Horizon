@@ -1,7 +1,7 @@
 function build_wrapper(wrapper_name)
 
 
-    local hide_import = "#define PRIVATE_HORIZON_HIDE_IMPORT"
+    local hide_import = "#define PRIVATE_HORIZON_HIDE_IMPORTS"
 
     local wrapper_source = darwin.dtw.load_file("wrappers/" .. wrapper_name .. ".c")
     wrapper_source = hide_import.."\n"..wrapper_source
