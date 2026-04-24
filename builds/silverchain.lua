@@ -14,30 +14,18 @@ function silver_chain_organize()
             "fdefine"
 
     }})
-    darwin.silverchain.generate({
-        src = "wrappers",
-        project_short_cut = PROJECT_NAME,
-        tags = { 
-------------------DECLARATIONS-------------------------------------------
-            "depdeclare", 
-------------------IMPLEMENTATIONS-------------------------------------------
-            "depdefine",
-            "fdefine"
-
-    }})
-
+  
 
 end 
 
 darwin.add_recipe({
-    inputs={
+    inputs = {
         "src",
-        "dependencies"
+        "dependencies",
+        "wrappers"
     },
-    outs= {
-        "src/fdeclare.all.h"
-    },
-    name="silver_chain_organize",
+    outs= { },
+    name="silver_chain",
     description = "Organize source files using SilverChain",
     callback = silver_chain_organize
 })
