@@ -11,6 +11,7 @@ function silver_chain_organize()
             "macro",
             "fdeclare", 
 ------------------IMPLEMENTATIONS-------------------------------------------
+            "global",
             "struct", 
             "fdefine"
 

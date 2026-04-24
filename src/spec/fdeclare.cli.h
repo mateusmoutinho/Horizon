@@ -4,4 +4,6 @@
 //silver_chain_scope_end
 
 
-int horizon_main(void *ctxt, int argc, char** argv);
+int horizon_main_ctxt(void *ctxt, int argc, char** argv);
+
+int horizon_main(int argc, char** argv);
