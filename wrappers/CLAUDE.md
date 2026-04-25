@@ -9,9 +9,14 @@ Wrappers integrate "impure" functions into the project. Each directory within `w
 - `wrappers/<name>/fdeclare.prototype.h`: Function prototypes (create ONLY if strictly necessary).
 - `wrappers/<name>/imports/`: Wrapper imports (managed by SilverChain, DO NOT modify).
 - `wrappers/<name>/implement/`: Function implementations (one `.c` file per function).
+- `wrappers/<name>/implement/fdefine.PROJECT_NAME<name>.c` : function definitions  
 - `wrappers/<name>/includes/`: Header files (create ONLY if strictly necessary).
 - `wrappers/<name>/includes/depdeclare.includes.h`: Includes the library's `.h` files.
 - `wrappers/<name>/includes/depdefine.includes.c`: Includes the library's `.c` files.
+
+
+## Function definitions 
+you can find all the function definitions in `wrappers/<name>/implement/fdefine.PROJECT_NAME<name>.c` 
 
 ## Build Process
 Built automatically via SilverChain (see `builds/wrappers.lua`). 
