@@ -1,5 +1,11 @@
 ## project overwiew
 Horizon horizontal scale database based on http requisitions
+### Wrapping system 
+Allways when the user calls you to to edit or create a wrapper, read the [WRAPPERS.md](/wrappers/CLAUDE.md) file to understand the wrapping system
+
+
+
+
 
 ### Build Requirements
 Requires [darwin](https://github.com/OUIsolutions/Darwin) v0.20.0+. Check with:
