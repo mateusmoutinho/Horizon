@@ -62,9 +62,11 @@ end
 
 
 function Wrappers()
-    Build_wrapper("std")
-
-    Build_wrapper("BearHttpsClient")
+    
+    local wrappers = darwin.dtw.list_dirs("wrappers")
+    for i=1,#wrappers do
+        Build_wrapper(wrappers[i])
+    end
 end
 
 darwin.add_recipe({
