@@ -27,12 +27,33 @@ function Build_wrapper(wrapper_name)
     darwin.dtw.write_file("src/deps/fdeclare." .. wrapper_name .. ".h", headers_pure)
 
 
-    local full = darwin.camalgamator.generate_amalgamation(
-        "wrappers/" .. wrapper_name .. "/imports/imports.depdefine.h"
+    local pure = darwin.camalgamator.generate_amalgamation_with_callback(
+        "wrappers/" .. wrapper_name .. "imports/fdefine.h",
+        function(import, path) 
+
+            print(import, path)
+
+         end
     )
-   -- darwin.dtw.write_file("release/Horizon_wrapper_" .. wrapper_name .. "_pure.c", pure)
-   -- darwin.dtw.write_file("release/Horizon_wrapper_" .. wrapper_name .. "_with_headers.c", with_headders)
+
+
+    
+    local with_headders = darwin.camalgamator.generate_amalgamation_with_callback(
+        "wrappers/" .. wrapper_name .. ".c",
+        function(import, path)
+            if darwin.dtw.ends_with(path,".h") then
+                return 'include-once' 
+            end
+            return 'dont-include'
+         end
+    )
+    local full = darwin.camalgamator.generate_amalgamation(
+        "wrappers/" .. wrapper_name .. ".c"
+    )
+    darwin.dtw.write_file("release/Horizon_wrapper_" .. wrapper_name .. "_pure.c", pure)
+    darwin.dtw.write_file("release/Horizon_wrapper_" .. wrapper_name .. "_with_headers.c", with_headders)
     darwin.dtw.write_file("release/Horizon_wrapper_" .. wrapper_name .. "_full.c", full)
+
 end
 
 
