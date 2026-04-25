@@ -24,6 +24,7 @@ function Build_wrapper(wrapper_name)
     local headers_pure = darwin.camalgamator.generate_amalgamation(
         "wrappers/" .. wrapper_name .. "/imports/imports.fdeclare.h"
     )
+    headers_pure = string.gsub(headers_pure, "PROJECT_NAME", PROJECT_NAME)
     darwin.dtw.write_file("src/deps/fdeclare." .. wrapper_name .. ".h", headers_pure)
 
 
@@ -52,9 +53,12 @@ function Build_wrapper(wrapper_name)
     local full = darwin.camalgamator.generate_amalgamation(
         "wrappers/" .. wrapper_name .. "/imports/imports.depdefine.h"
     )
-    darwin.dtw.write_file("release/PROJECT_NAME_wrapper_" .. wrapper_name .. "_pure.c", pure)
-    darwin.dtw.write_file("release/PROJECT_NAME_wrapper_" .. wrapper_name .. "_with_headers.c", with_headders)
-    darwin.dtw.write_file("release/PROJECT_NAME_wrapper_" .. wrapper_name .. "_full.c", full)
+    pure         = string.gsub(pure,         "PROJECT_NAME", PROJECT_NAME)
+    with_headders = string.gsub(with_headders, "PROJECT_NAME", PROJECT_NAME)
+    full         = string.gsub(full,         "PROJECT_NAME", PROJECT_NAME)
+    darwin.dtw.write_file("release/" .. PROJECT_NAME .. "_wrapper_" .. wrapper_name .. "_pure.c", pure)
+    darwin.dtw.write_file("release/" .. PROJECT_NAME .. "_wrapper_" .. wrapper_name .. "_with_headers.c", with_headders)
+    darwin.dtw.write_file("release/" .. PROJECT_NAME .. "_wrapper_" .. wrapper_name .. "_full.c", full)
 
 end
 

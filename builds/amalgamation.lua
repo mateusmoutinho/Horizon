@@ -17,6 +17,7 @@ function amalgamation()
     local amalgamations = darwin.dtw.list_files("amalgamations")
     for i=1,#amalgamations do
         local result = darwin.camalgamator.generate_amalgamation("amalgamations/" .. amalgamations[i])
+        result = string.gsub(result, "PROJECT_NAME", PROJECT_NAME)
         darwin.dtw.write_file("release/" .. amalgamations[i], result)
     end
     
