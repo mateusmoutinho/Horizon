@@ -12,7 +12,6 @@ void * horizondeps_malloc_ctxt(void *ctxt, long size){
 #endif
 #if !defined(horizondeps_malloc_implementation)
 #define horizondeps_malloc_implementation
-
 void * horizondeps_malloc(long size){
     return malloc(size);
 }
