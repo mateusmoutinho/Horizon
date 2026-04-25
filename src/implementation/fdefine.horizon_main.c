@@ -3,18 +3,18 @@
 #include "../../src/imports/imports.fdeclare.h"
 //silver_chain_scope_end
 
-#if !defined(horizon_main_ctxt_implementation)
-#define horizon_main_ctxt_implementation
-int horizon_main_ctxt(void *ctxt, int argc, char** argv){
-    horizondeps_printf_ctxt(ctxt, "Hello, World!\n");
+#if !defined(PROJECT_NAME_main_ctxt_implementation)
+#define PROJECT_NAME_main_ctxt_implementation
+int PROJECT_NAME_main_ctxt(void *ctxt, int argc, char** argv){
+    PROJECT_NAMEdeps_printf_ctxt(ctxt, "Hello, World!\n");
     return 0;
 }
 #endif 
 
-#if !defined(horizon_main_implementation)
-#define horizon_main_implementation
-int horizon_main(int argc, char** argv){
-    return horizon_main_ctxt(horizon_ctxt, argc, argv);
+#if !defined(PROJECT_NAME_main_implementation)
+#define PROJECT_NAME_main_implementation
+int PROJECT_NAME_main(int argc, char** argv){
+    return PROJECT_NAME_main_ctxt(PROJECT_NAME_ctxt, argc, argv);
 }
 #endif
 

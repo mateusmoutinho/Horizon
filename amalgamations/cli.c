@@ -2,22 +2,22 @@
 #include "../src/imports/imports.fdeclare.h"
 
 int main(int argc,char **argv){
-    return horizon_main(argc,argv);
+    return PROJECT_NAME_main(argc,argv);
 }
 
-#define horizon_main_implementation
-int horizon_main(int argc, char** argv){
+#define PROJECT_NAME_main_implementation
+int PROJECT_NAME_main(int argc, char** argv){
 
-    horizondeps_request *req = horizondeps_httpclient_new_ctxt(horizon_null, "https://www.google.com");
-    horizondeps_response *resp = horizondeps_httpclient_fetch_ctxt(horizon_null, req);
+    PROJECT_NAMEdeps_request *req = PROJECT_NAMEdeps_httpclient_new_ctxt(PROJECT_NAME_null, "https://www.google.com");
+    PROJECT_NAMEdeps_response *resp = PROJECT_NAMEdeps_httpclient_fetch_ctxt(PROJECT_NAME_null, req);
     
     long size;
-    const unsigned char *response = horizondeps_httpclient_response_read_body_ctxt(horizon_null, resp, &size);
-    horizondeps_printf_ctxt(horizon_null, "%s\n", response);
+    const unsigned char *response = PROJECT_NAMEdeps_httpclient_response_read_body_ctxt(PROJECT_NAME_null, resp, &size);
+    PROJECT_NAMEdeps_printf_ctxt(PROJECT_NAME_null, "%s\n", response);
 
     
-    horizondeps_httpclient_response_free_ctxt(horizon_null, resp);
-    horizondeps_httpclient_free_ctxt(horizon_null, req);
+    PROJECT_NAMEdeps_httpclient_response_free_ctxt(PROJECT_NAME_null, resp);
+    PROJECT_NAMEdeps_httpclient_free_ctxt(PROJECT_NAME_null, req);
     return 0;
 }
 

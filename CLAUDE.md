@@ -1,5 +1,5 @@
 ## project overwiew
-Horizon horizontal scale database based on http requisitions
+PROJECT_NAME PROJECT_NAMEtal scale database based on http requisitions
 ### Wrapping system 
 Allways when the user calls you to to edit or create a wrapper, read the [WRAPPERS.md](/wrappers/CLAUDE.md) file to understand the wrapping system
 

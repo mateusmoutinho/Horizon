@@ -52,9 +52,9 @@ function Build_wrapper(wrapper_name)
     local full = darwin.camalgamator.generate_amalgamation(
         "wrappers/" .. wrapper_name .. "/imports/imports.depdefine.h"
     )
-    darwin.dtw.write_file("release/Horizon_wrapper_" .. wrapper_name .. "_pure.c", pure)
-    darwin.dtw.write_file("release/Horizon_wrapper_" .. wrapper_name .. "_with_headers.c", with_headders)
-    darwin.dtw.write_file("release/Horizon_wrapper_" .. wrapper_name .. "_full.c", full)
+    darwin.dtw.write_file("release/PROJECT_NAME_wrapper_" .. wrapper_name .. "_pure.c", pure)
+    darwin.dtw.write_file("release/PROJECT_NAME_wrapper_" .. wrapper_name .. "_with_headers.c", with_headders)
+    darwin.dtw.write_file("release/PROJECT_NAME_wrapper_" .. wrapper_name .. "_full.c", full)
 
 end
 

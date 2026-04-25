@@ -2,4 +2,4 @@
 //mannaged by silver chain: https://github.com/OUIsolutions/SilverChain
 #include "../imports/imports.macro.h"
 //silver_chain_scope_end
-void *horizon_ctxt = horizon_null;
+void *PROJECT_NAME_ctxt = PROJECT_NAME_null;

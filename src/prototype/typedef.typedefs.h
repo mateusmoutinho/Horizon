@@ -1,4 +1,4 @@
 
 
 
-typedef struct horizonserver horizonserver;
+typedef struct PROJECT_NAMEserver PROJECT_NAMEserver;

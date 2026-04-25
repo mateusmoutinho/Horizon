@@ -4,7 +4,7 @@
 //silver_chain_scope_end
 
 #if defined(__cplusplus)
-#define horizon_null nullptr
+#define PROJECT_NAME_null nullptr
 #else
-#define horizon_null ((void *)0)
+#define PROJECT_NAME_null ((void *)0)
 #endif

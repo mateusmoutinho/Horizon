@@ -3,9 +3,9 @@
 #include "../../../wrappers/httpsclient/imports/imports.depdeclare.h"
 //silver_chain_scope_end
 
-#if !defined(horizondeps_httpclient_response_get_header_count_ctxt_implementation)
-#define horizondeps_httpclient_response_get_header_count_ctxt_implementation
-int horizondeps_httpclient_response_get_header_count_ctxt(void *ctxt, horizondeps_response *response) {
+#if !defined(PROJECT_NAMEdeps_httpclient_response_get_header_size_ctxt_implementation)
+#define PROJECT_NAMEdeps_httpclient_response_get_header_size_ctxt_implementation
+int PROJECT_NAMEdeps_httpclient_response_get_header_size_ctxt(void *ctxt, PROJECT_NAMEdeps_response *response) {
     BearHttpsResponse *resp = (BearHttpsResponse *)response;
     return BearHttpsResponse_get_headers_size(resp);
 }
