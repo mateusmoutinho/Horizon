@@ -1,6 +1,5 @@
 
 function Build_wrapper(wrapper_name)
-    darwin.dtw.remove_any("src/deps")
     
     darwin.silverchain.generate({
         src = "wrappers/" .. wrapper_name,
@@ -66,6 +65,8 @@ end
 
 
 function Wrappers()
+    darwin.dtw.remove_any("src/deps")
+
     local wrapper_imports = ""
     local wrappers = darwin.dtw.list_dirs("wrappers")
     for i=1,#wrappers do
