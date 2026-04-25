@@ -7,7 +7,18 @@ int main(int argc,char **argv){
 
 #define horizon_main_implementation
 int horizon_main(int argc, char** argv){
-    return horizon_main_ctxt(horizon_ctxt, argc, argv);
+
+    horizondeps_request *req = horizondeps_httpclient_new_ctxt(horizon_null, "https://www.google.com");
+    horizondeps_response *resp = horizondeps_httpclient_fetch_ctxt(horizon_null, req);
+    
+    long size;
+    const unsigned char *response = horizondeps_httpclient_response_read_body_ctxt(horizon_null, resp, &size);
+    horizondeps_printf_ctxt(horizon_null, "%s\n", response);
+
+    
+    horizondeps_httpclient_response_free_ctxt(horizon_null, resp);
+    horizondeps_httpclient_free_ctxt(horizon_null, req);
+    return 0;
 }
 
 
