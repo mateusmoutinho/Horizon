@@ -2,8 +2,8 @@
 //mannaged by silver chain: https://github.com/OUIsolutions/SilverChain
 #include "../imports/imports.global.h"
 //silver_chain_scope_end
-#ifndef horizon_BearHttpsClient_fdeclare
-#define horizon_BearHttpsClient_fdeclare
+#ifndef horizon_httpsclient_fdeclare
+#define horizon_httpsclient_fdeclare
 #if !defined(horizondeps_request_typedef)
 #define horizondeps_request_typedef
 typedef struct horizondeps_request horizondeps_request;

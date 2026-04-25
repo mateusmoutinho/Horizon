@@ -35,6 +35,7 @@ darwin.add_recipe({
     name="amalgamation",
     description = "Amalgamate source files",
     requires = {
+        "wrappers"
     },
     callback = amalgamation
 })

@@ -62,12 +62,18 @@ end
 
 
 function Wrappers()
-    
+    local wrapper_imports = ""
     local wrappers = darwin.dtw.list_dirs("wrappers")
     for i=1,#wrappers do
-        Build_wrapper(wrappers[i])
+        local current_wrapper = wrappers[i]
+        -- replace "/" for "" in current_wrapper
+        current_wrapper = string.gsub(current_wrapper, "/", "")
+        wrapper_imports = wrapper_imports .. "#include \"../wrappers/" .. current_wrapper.. "/imports/imports.depdefine.h\"\n"
+        Build_wrapper(current_wrapper)
     end
+    darwin.dtw.write_file("amalgamations/wrapper_imports.h", wrapper_imports)
 end
+
 
 darwin.add_recipe({
     inputs = {
