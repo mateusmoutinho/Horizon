@@ -28,27 +28,29 @@ function Build_wrapper(wrapper_name)
 
 
     local pure = darwin.camalgamator.generate_amalgamation_with_callback(
-        "wrappers/" .. wrapper_name .. "imports/fdefine.h",
-        function(import, path) 
-
-            print(import, path)
+        "wrappers/" .. wrapper_name .. "/imports/imports.fdefine.h",
+        function(import, name) 
+           
+            if darwin.dtw.ends_with(name, "depdeclare.includes.h") then
+                return 'dont-include'
+            end
+            if darwin.dtw.ends_with(name, "depdefine.includes.c") then
+                return 'dont-include'
+            end
+            return 'include-once'
 
          end
     )
 
 
     
-    local with_headders = darwin.camalgamator.generate_amalgamation_with_callback(
-        "wrappers/" .. wrapper_name .. ".c",
-        function(import, path)
-            if darwin.dtw.ends_with(path,".h") then
-                return 'include-once' 
-            end
-            return 'dont-include'
-         end
+    local with_headders =  darwin.camalgamator.generate_amalgamation(
+        "wrappers/" .. wrapper_name .. "/imports/imports.fdefine.h"
     )
+
+
     local full = darwin.camalgamator.generate_amalgamation(
-        "wrappers/" .. wrapper_name .. ".c"
+        "wrappers/" .. wrapper_name .. "/imports/imports.depdefine.h"
     )
     darwin.dtw.write_file("release/Horizon_wrapper_" .. wrapper_name .. "_pure.c", pure)
     darwin.dtw.write_file("release/Horizon_wrapper_" .. wrapper_name .. "_with_headers.c", with_headders)
