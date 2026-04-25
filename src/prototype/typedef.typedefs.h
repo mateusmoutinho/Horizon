@@ -1,4 +1,3 @@
 
 
-
-typedef struct PROJECT_NAMEserver PROJECT_NAMEserver;
+typedef struct PROJECT_NAMEbox PROJECT_NAMEbox;
