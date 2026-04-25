@@ -19,7 +19,7 @@ function Build_wrapper(wrapper_name)
 
     }})
 
-    
+
 
     local headers_pure = darwin.camalgamator.generate_amalgamation(
         "wrappers/" .. wrapper_name .. "/imports/imports.fdeclare.h"
@@ -41,6 +41,7 @@ end
 function Wrappers()
     Build_wrapper("std")
 
+    Build_wrapper("BearHttpsClient")
 end
 
 darwin.add_recipe({
