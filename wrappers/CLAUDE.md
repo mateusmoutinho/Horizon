@@ -1,30 +1,22 @@
 
-### Wrappers purpose
+# Wrappers
 
-the wrapper its a way to add "impure" functions to the project 
-each dir inside wrappers/ it's a "library" that its ported to the lib 
+## Purpose
+Wrappers integrate "impure" functions into the project. Each directory within `wrappers/` represents a specific library ported to the main library.
 
-### Wrappers Structure
+## Directory Structure
+- `wrappers/<name>/`: Root for a specific wrapper.
+- `wrappers/<name>/fdeclare.prototype.h`: Function prototypes (create ONLY if strictly necessary).
+- `wrappers/<name>/imports/`: Wrapper imports (managed by SilverChain, DO NOT modify).
+- `wrappers/<name>/implement/`: Function implementations (one `.c` file per function).
+- `wrappers/<name>/includes/`: Header files (create ONLY if strictly necessary).
+- `wrappers/<name>/includes/depdeclare.includes.h`: Includes the library's `.h` files.
+- `wrappers/<name>/includes/depdefine.includes.c`: Includes the library's `.c` files.
 
-```
-wrappers/
-wrappers/<wrapper-name>/                                      # standard c library    
-wrappers/<wrapper-name>/fdeclare.prototype.h                    # Function prototypes (don't create it unless its necessary for some reason)
-wrappers/<wrapper-name>/imports/                                # imports of the wrapper (defined on SilverChain and donnt need to be touched)
-wrappers/<wrapper-name>/implement/                             # Function implementations (each function its in its own file)
-wrappers/<wrapper-name>/implement/<wrapper-function>.c        # Function prototypes 
-wrappers/<wrapper-name>/includes/                              # Header files (don't create them unless its necessary for some reason)
-wrappers/<wrapper-name>/includes/depdeclare.includes.h         # includes the .h of the lib 
-wrappers/<wrapper-name>/includes/depdefine.includes.c          # includes the .c of the lib 
-```
-
-### Build of wrappers
-
-the build its done automaticly by the silverchain and you can check it on [wrappers.lua](/builds/wrappers.lua)
-it generates the following files:
-
-
-- release/Horizon_wrapper_<<wrapper-name>>_full.c # a big file with all the function implementations
-- src/deps/fdeclare.<<wrapper-name>>.h            # function prototypes of the wrapper that can be used by the pure part of the project 
+## Build Process
+Built automatically via SilverChain (see `builds/wrappers.lua`). 
+Outputs generated:
+- `release/Horizon_wrapper_<name>_full.c`: Concatenated file containing all function implementations.
+- `src/deps/fdeclare.<name>.h`: Function prototypes exposed for use in the pure parts of the project.
 
 
