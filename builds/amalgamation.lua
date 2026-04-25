@@ -1,4 +1,19 @@
 function amalgamation()
+   
+       darwin.silverchain.generate({
+        src = "src",
+        project_short_cut = PROJECT_NAME,
+        tags = { 
+------------------DECLARATIONS-------------------------------------------
+            "typedef",
+            "macro",
+            "global",
+            "fdeclare", 
+------------------IMPLEMENTATIONS-------------------------------------------
+            "struct", 
+            "fdefine"
+
+    }})
     local horizon_lib_full = darwin.camalgamator.generate_amalgamation("amalgamation/HorizonLib_full.c")
     local horizon_lib_headers = darwin.camalgamator.generate_amalgamation("amalgamation/HorizonLib.h")
     local horizon_lib_pure = darwin.camalgamator.generate_amalgamation("amalgamation/HorizonLib_pure.c")
@@ -24,7 +39,6 @@ darwin.add_recipe({
     name="amalgamation",
     description = "Amalgamate source files",
     requires = {
-       "silver_chain"
     },
     callback = amalgamation
 })

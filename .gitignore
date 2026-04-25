@@ -1,6 +1,6 @@
 test.c
 pattern
-src/imports
+imports/
 wrappers/imports
 dependencies
 release
