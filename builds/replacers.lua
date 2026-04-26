@@ -21,7 +21,7 @@ end
 
 darwin.add_recipe({
     inputs = {
-        "internal_doc"
+        "replacers"
     },
     outs = {},
     name = "generate-docs",
