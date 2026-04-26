@@ -1,3 +1,4 @@
 
-database storage pattern
-whenever a key its 
+database storage pattern:
+
+Struct: 
