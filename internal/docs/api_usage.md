@@ -45,3 +45,35 @@ long int offset = 0;
 long int size_to_read = 30;
 long int size_readed = PROJECT_NAME_bucket_read_data(bucket, (unsigned char *)key, key_size,offset, size_to_read, data_buffer);
 ```
+
+## Get a data size 
+```c
+const char *key =  "mateus";
+long key_size = strlen(key);
+long data_size = PROJECT_NAME_bucket_get_data_size(bucket, (unsigned char *)key, key_size);
+```
+
+## Get a data 
+```c
+const char *key =  "mateus";
+long key_size = strlen(key);
+long data_size = PROJECT_NAME_bucket_get_data_size(bucket, (unsigned char *)key, key_size);
+unsigned char *data = malloc(data_size);
+PROJECT_NAME_bucket_read_data(bucket, (unsigned char *)key, key_size,0, data_size, data);
+```
+
+## Iterating over the keys
+```c
+
+int key_index = 0;
+while (1) {
+    long key_size = PROJECT_NAME_bucket_get_key_size_by_index(bucket, key_index);
+    if (key_size == -1) {
+        break;
+    }
+    unsigned char key[key_size];
+    PROJECT_NAME_bucket_get_key_by_index(bucket, key_index, key);
+    printf("%s\n", key);
+    key_index++;
+}
+```
