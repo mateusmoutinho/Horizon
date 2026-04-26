@@ -53,7 +53,7 @@ PROJECT_NAME_bucket *bucket = PROJECT_NAME_bucket_new("./local_bucket");
 Stores a value under a given key. Both the key and data are treated as raw byte buffers, allowing storage of arbitrary binary content.
 
 ```c
-PROJECT_NAME_bucket_write_data(bucket,key, key_sizeq,data, data_size);
+PROJECT_NAME_bucket_write_data(bucket,key, key_size,data, data_size);
 ```
 
 | Parameter      | Type                         | Description                                |
@@ -71,15 +71,16 @@ PROJECT_NAME_bucket_write_data(bucket,key, key_sizeq,data, data_size);
 For large payloads, data can be written incrementally using offset-based chunks. Each call appends or overwrites a segment of the value at the specified byte offset.
 
 ```c
-unsigned char *data = "Hello World";
-long total_size = strlen(data);
-int chunk_size = 3;
-int offset = 0;
 
-while (offset < total_size) {
-    int current_chunk = (offset + chunk_size > total_size) ? (total_size - offset) : chunk_size;
-    PROJECT_NAME_bucket_write_data_chunk(bucket, key, key_size, offset, data + offset, current_chunk);
-    offset += current_chunk;
+unsigned char *key = "my_key";
+long key_size = strlen(key);
+unsigned char *data = "Hello World";
+
+long total_size = strlen(data);
+long CHUNK_SIZE = 3;
+
+for (long offset = 0; offset < total_size; offset += CHUNK_SIZE) {
+    PROJECT_NAME_bucket_write_data_chunk(bucket, key, key_size, offset, data + offset, CHUNK_SIZE);
 }
 ```
 
