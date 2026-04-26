@@ -9,7 +9,9 @@ EMAIL        = "mateusmoutinho01@gmail.com"
 SUMARY       = ""
 LAUNGUAGE    = "c"
 
-
+REPLCERS = {
+    ["PROJECT_NAME"] = "Horizon"
+}
 
 -- Load all build recipes from builds/ directory
 darwin.load_all("builds")

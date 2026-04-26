@@ -1,0 +1,1 @@
+PROJECT_NAME is a horizontal scale database 
