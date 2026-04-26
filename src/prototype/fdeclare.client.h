@@ -11,23 +11,26 @@ PROJECT_NAMEbox * PROJECT_NAME_new_remote_box_ctx(void *ctx,const char *url,cons
 void PROJECT_NAMEbox_write_data_block_ctx(
     void *ctx,
     PROJECT_NAMEbox *box,
-    const char *key,
-    unsigned char *data, long data_size
+    const unsigned char *key,
+    long key_size,
+    const unsigned char *data, long data_size
 );
 
 long PROJECT_NAMEbox_get_data_size_ctx(
     void *ctx,
     PROJECT_NAMEbox *box,
-    const char *key
+    const unsigned char *key,
+    long key_size
 );
 
-void PROJECT_NAMEbox_read_data_block_ctx(
+
+long  PROJECT_NAMEbox_read_data_block_ctx(
     void *ctx,
     PROJECT_NAMEbox *box,
-    const char *key,
-    unsigned char **out_buffer,
-    long *out_buffer_size,
-    long max_data_size
+    const unsigned char *key,
+    long key_size,
+    unsigned char **data_buffer,
+    long *data_buffer_size
 );
 
 //---------------------------- ITERATORS ------------------------
