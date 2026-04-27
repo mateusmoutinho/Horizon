@@ -191,6 +191,60 @@ Returns the raw data slice defined by `offset` and `size`.
 
 ---
 
+### Read Multiple Items
+
+Reads multiple items in a single request. Each item is identified by its key hash, and the response returns their corresponding data in the same order.
+
+```
+POST /read-items
+```
+
+**Headers**
+
+| Header     | Required | Description    |
+|------------|----------|----------------|
+| `password` | Yes      | Root password. |
+
+**Body**
+
+```json
+{
+  "items": [
+    "keyhash_1",
+    "keyhash_2",
+    "keyhash_n"
+  ]
+}
+```
+
+**Response**
+
+```json
+{
+  "items": [
+    {
+      "keyhash": "<key_hash>",
+      "format": "b64",
+      "data": "<base64_encoded_data>"
+    },
+    {
+      "keyhash": "<key_hash>",
+      "format": "txt",
+      "data": "<plain_text_data>"
+    }
+  ]
+}
+```
+
+**Supported Formats**
+
+| Format | Description                  |
+|--------|------------------------------|
+| `b64`  | Base64-encoded binary data.  |
+| `txt`  | Plain UTF-8 text data.       |
+
+---
+
 
 ### Get Item Data Size
 
