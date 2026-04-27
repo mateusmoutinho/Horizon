@@ -27,10 +27,10 @@ POST /write-data
 
 **Headers**
 
-| Header     | Required | Description                         |
-|------------|----------|-------------------------------------|
-| `password` | Yes      | Root password.                      |
-| `keyhash`  | Yes      | Key hash of the item to write.      |
+| Header           | Required | Description                                                                 |
+|------------------|----------|-----------------------------------------------------------------------------|
+| `password`       | Yes      | Root password.                                                              |
+| `keyhash`        | Yes      | Key hash of the item to write.                                              |
 
 **Body**
 
@@ -48,10 +48,10 @@ POST /write-key-value
 
 **Headers**
 
-| Header     | Required | Description                              |
-|------------|----------|------------------------------------------|
-| `password` | Yes      | Root password.                           |
-| `keyhash`  | Yes      | Key hash of the key-value item to write. |
+| Header           | Required | Description                                                                 |
+|------------------|----------|-----------------------------------------------------------------------------|
+| `password`       | Yes      | Root password.                                                              |
+| `keyhash`        | Yes      | Key hash of the key-value item to write.                                    |
 
 **Body**
 
@@ -59,7 +59,7 @@ The key-value data to be stored.
 
 ---
 
-### Write Item (Chunked)
+### Write Data (Chunked)
 
 Writes a chunk of data at a specified offset, enabling incremental or resumable uploads.
 
@@ -81,13 +81,54 @@ POST /write-data-chunk
 The binary data chunk to be stored at the specified offset.
 
 ---
+### Read Key-Value
 
-### Read Item
+Reads the key-value associated with a given key-value key.
 
-Reads a portion of data associated with a given key.
+```
+GET /read-key-value
+```
+
+**Headers**
+
+| Header     | Required | Description                                        |
+|------------|----------|----------------------------------------------------|
+| `password` | Yes      | Root password.                                     |
+| `keyhash`  | Yes      | Key hash of the item to read.                      |
+
+**Response**
+
+Returns the key-value data.
+
+---
+
+### Read Data
+
+Reads the entire data associated with a given data-key.
 
 ```
 GET /read-data
+```
+
+**Headers**
+
+| Header     | Required | Description                         |
+|------------|----------|-------------------------------------|
+| `password` | Yes      | Root password.                      |
+| `keyhash`  | Yes      | Key hash of the item to read.       |
+
+**Response**
+
+Returns the raw data slice.
+
+---
+
+### Read Data (Chunked)
+
+Reads a portion of data associated with a given data-key.
+
+```
+GET /read-data-chunk
 ```
 
 **Headers**
