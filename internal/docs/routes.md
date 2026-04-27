@@ -49,3 +49,14 @@ password: <root_password>
 keyhash: <key_hash>
 offset: <offset>
 size: <size_to_read>
+
+
+## Delete Item
+
+DELETE /delete-data
+
+Headers:
+
+password: <root_password>
+keyhash: <key_hash>
+
