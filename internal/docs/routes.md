@@ -1,4 +1,4 @@
-# Horizon API Routes Reference
+# PROJECT_NAME API Routes Reference
 
 This document describes the HTTP routes exposed by the PROJECT_NAME server. All routes require authentication via request headers unless otherwise noted.
 
