@@ -5,7 +5,7 @@
 
 #if !defined(PROJECT_NAMEdeps_server_send_json_ctxt_implementation)
 #define PROJECT_NAMEdeps_server_send_json_ctxt_implementation
-const void *PROJECT_NAMEdeps_server_send_json_ctxt(void *ctxt, const void *json, int status_code) {
-    return cweb_send_cJSON((cJSON *)json, status_code);
+PROJECT_NAMEdeps_server_response *PROJECT_NAMEdeps_server_send_json_ctxt(void *ctxt, const void *json, int status_code) {
+    return (PROJECT_NAMEdeps_server_response *)cweb_send_cJSON((cJSON *)json, status_code);
 }
 #endif

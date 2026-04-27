@@ -5,7 +5,7 @@
 
 #if !defined(PROJECT_NAMEdeps_server_send_file_ctxt_implementation)
 #define PROJECT_NAMEdeps_server_send_file_ctxt_implementation
-const void *PROJECT_NAMEdeps_server_send_file_ctxt(void *ctxt, const char *path, const char *content_type, int status_code) {
-    return (void *)cweb_send_file(path, content_type, status_code);
+PROJECT_NAMEdeps_server_response *PROJECT_NAMEdeps_server_send_file_ctxt(void *ctxt, const char *path, const char *content_type, int status_code) {
+    return (PROJECT_NAMEdeps_server_response *)cweb_send_file(path, content_type, status_code);
 }
 #endif

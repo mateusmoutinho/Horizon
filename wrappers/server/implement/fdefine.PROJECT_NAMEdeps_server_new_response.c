@@ -5,7 +5,7 @@
 
 #if !defined(PROJECT_NAMEdeps_server_new_response_ctxt_implementation)
 #define PROJECT_NAMEdeps_server_new_response_ctxt_implementation
-void *PROJECT_NAMEdeps_server_new_response_ctxt(void *ctxt) {
-    return (void *)newCwebHttpResponse();
+PROJECT_NAMEdeps_server_response *PROJECT_NAMEdeps_server_new_response_ctxt(void *ctxt) {
+    return (PROJECT_NAMEdeps_server_response *)newCwebHttpResponse();
 }
 #endif

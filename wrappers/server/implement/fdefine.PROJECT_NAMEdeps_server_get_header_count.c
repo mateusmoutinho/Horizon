@@ -5,7 +5,7 @@
 
 #if !defined(PROJECT_NAMEdeps_server_get_header_count_ctxt_implementation)
 #define PROJECT_NAMEdeps_server_get_header_count_ctxt_implementation
-int PROJECT_NAMEdeps_server_get_header_count_ctxt(void *ctxt, const void *request) {
+int PROJECT_NAMEdeps_server_get_header_count_ctxt(void *ctxt, PROJECT_NAMEdeps_server_request *request) {
     return ((CwebHttpRequest *)request)->headers->size;
 }
 #endif

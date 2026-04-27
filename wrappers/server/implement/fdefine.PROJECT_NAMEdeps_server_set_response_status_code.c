@@ -5,7 +5,7 @@
 
 #if !defined(PROJECT_NAMEdeps_server_set_response_status_code_ctxt_implementation)
 #define PROJECT_NAMEdeps_server_set_response_status_code_ctxt_implementation
-void PROJECT_NAMEdeps_server_set_response_status_code_ctxt(void *ctxt, void *response, int status_code) {
+void PROJECT_NAMEdeps_server_set_response_status_code_ctxt(void *ctxt, PROJECT_NAMEdeps_server_response *response, int status_code) {
     ((CwebHttpResponse *)response)->status_code = status_code;
 }
 #endif

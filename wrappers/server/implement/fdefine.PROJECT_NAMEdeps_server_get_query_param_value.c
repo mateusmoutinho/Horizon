@@ -5,7 +5,7 @@
 
 #if !defined(PROJECT_NAMEdeps_server_get_query_param_value_ctxt_implementation)
 #define PROJECT_NAMEdeps_server_get_query_param_value_ctxt_implementation
-const char *PROJECT_NAMEdeps_server_get_query_param_value_ctxt(void *ctxt, const void *request, int index) {
+const char *PROJECT_NAMEdeps_server_get_query_param_value_ctxt(void *ctxt, PROJECT_NAMEdeps_server_request *request, int index) {
     CwebHttpRequest *req = (CwebHttpRequest *)request;
     if (index < 0 || index >= req->params->size) return NULL;
     return req->params->keys_vals[index]->value;

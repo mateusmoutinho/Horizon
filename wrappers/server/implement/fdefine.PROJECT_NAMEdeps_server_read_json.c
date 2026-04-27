@@ -5,7 +5,7 @@
 
 #if !defined(PROJECT_NAMEdeps_server_read_json_ctxt_implementation)
 #define PROJECT_NAMEdeps_server_read_json_ctxt_implementation
-const void *PROJECT_NAMEdeps_server_read_json_ctxt(void *ctxt, const void *request, long size) {
+const void *PROJECT_NAMEdeps_server_read_json_ctxt(void *ctxt, PROJECT_NAMEdeps_server_request *request, long size) {
     return (const void *)CWebHttpRequest_read_cJSON((CwebHttpRequest *)request, size);
 }
 #endif

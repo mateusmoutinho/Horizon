@@ -5,7 +5,7 @@
 
 #if !defined(PROJECT_NAMEdeps_server_get_header_ctxt_implementation)
 #define PROJECT_NAMEdeps_server_get_header_ctxt_implementation
-const char *PROJECT_NAMEdeps_server_get_header_ctxt(void *ctxt, const void *request, const char *key) {
+const char *PROJECT_NAMEdeps_server_get_header_ctxt(void *ctxt, PROJECT_NAMEdeps_server_request *request, const char *key) {
     return CwebHttpRequest_get_header((CwebHttpRequest *)request, key);
 }
 #endif

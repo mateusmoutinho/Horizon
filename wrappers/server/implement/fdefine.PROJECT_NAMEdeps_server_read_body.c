@@ -5,7 +5,7 @@
 
 #if !defined(PROJECT_NAMEdeps_server_read_body_ctxt_implementation)
 #define PROJECT_NAMEdeps_server_read_body_ctxt_implementation
-const unsigned char *PROJECT_NAMEdeps_server_read_body_ctxt(void *ctxt, const void *request, long size, long *read_size) {
+const unsigned char *PROJECT_NAMEdeps_server_read_body_ctxt(void *ctxt, PROJECT_NAMEdeps_server_request *request, long size, long *read_size) {
     CwebHttpRequest *req = (CwebHttpRequest *)request;
     unsigned char *body = CwebHttpRequest_read_content(req, size);
     *read_size = req->content_length;

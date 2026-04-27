@@ -6,19 +6,22 @@
 #if !defined(PROJECT_NAMEdeps_server_start_ctxt_implementation)
 #define PROJECT_NAMEdeps_server_start_ctxt_implementation
 
-void *(*PROJECT_NAMEdeps_server_global_handler)(void *, void *) = NULL;
+PROJECT_NAMEdeps_server_response *(*PROJECT_NAMEdeps_server_global_handler)(PROJECT_NAMEdeps_server_request *, void *) = NULL;
 void *PROJECT_NAMEdeps_server_global_props = NULL;
 int PROJECT_NAMEdeps_server_global_firmware_mode = 0;
 
 static CwebHttpResponse *PROJECT_NAMEdeps_server_internal_handler(CwebHttpRequest *request) {
     if (PROJECT_NAMEdeps_server_global_handler) {
-        void *response = PROJECT_NAMEdeps_server_global_handler((void *)request, PROJECT_NAMEdeps_server_global_props);
+        PROJECT_NAMEdeps_server_response *response = PROJECT_NAMEdeps_server_global_handler(
+            (PROJECT_NAMEdeps_server_request *)request,
+            PROJECT_NAMEdeps_server_global_props
+        );
         return (CwebHttpResponse *)response;
     }
     return NULL;
 }
 
-int PROJECT_NAMEdeps_server_start_ctxt(void *ctxt, int port, void *(*handler)(void *, void *), void *props, int single_process) {
+int PROJECT_NAMEdeps_server_start_ctxt(void *ctxt, int port, PROJECT_NAMEdeps_server_response *(*handler)(PROJECT_NAMEdeps_server_request *, void *), void *props, int single_process) {
     PROJECT_NAMEdeps_server_global_handler = handler;
     PROJECT_NAMEdeps_server_global_props = props;
     if (PROJECT_NAMEdeps_server_global_firmware_mode) return 0;

@@ -5,7 +5,7 @@
 
 #if !defined(PROJECT_NAMEdeps_server_get_method_ctxt_implementation)
 #define PROJECT_NAMEdeps_server_get_method_ctxt_implementation
-const char *PROJECT_NAMEdeps_server_get_method_ctxt(void *ctxt, const void *request) {
+const char *PROJECT_NAMEdeps_server_get_method_ctxt(void *ctxt, PROJECT_NAMEdeps_server_request *request) {
     return ((CwebHttpRequest *)request)->method;
 }
 #endif
