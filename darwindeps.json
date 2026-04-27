@@ -47,6 +47,36 @@
 		"tag":	"0.10.0",
 		"type":	"gitrelease",
 		"updated_at":	"2026-03-23T11:23:58Z"
+	},
+	{
+		"dest":	"dependencies/cJSON.h",
+		"file":	"cJSON.h",
+		"repo":	"OUIsolutions/cJSON",
+		"tag":	"1.17.9",
+		"type":	"gitrelease",
+		"updated_at":	"2025-10-28T02:32:22Z"
+	}, {
+		"dest":	"dependencies/cJSON.c",
+		"file":	"cJSON.c",
+		"repo":	"OUIsolutions/cJSON",
+		"tag":	"1.17.9",
+		"type":	"gitrelease",
+		"updated_at":	"2025-10-28T02:55:40Z"
+	},
+	{
+		"dest":	"dependencies/doTheWorld.h",
+		"file":	"doTheWorld.h",
+		"repo":	"OUIsolutions/DoTheWorld",
+		"tag":	"11.2.1",
+		"type":	"gitrelease",
+		"updated_at":	"2026-02-14T22:28:56Z"
+	}, {
+		"dest":	"dependencies/doTheWorldOne.c",
+		"file":	"doTheWorldOne.c",
+		"repo":	"OUIsolutions/DoTheWorld",
+		"tag":	"11.2.1",
+		"type":	"gitrelease",
+		"updated_at":	"2026-02-14T22:28:57Z"
 	}
 
 
