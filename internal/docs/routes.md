@@ -122,6 +122,71 @@ DELETE /delete-data
 
 ---
 
+### Get Item Data Size
+
+Returns the total size in bytes of the value associated with a given key. Useful for allocating buffers before a read.
+
+```
+GET /get-data-size
+```
+
+**Headers**
+
+| Header     | Required | Description                         |
+|------------|----------|-------------------------------------|
+| `password` | Yes      | Root password.                      |
+| `keyhash`  | Yes      | Key hash of the item to query.      |
+
+**Response**
+
+Returns the data size as a plain-text integer.
+
+---
+
+## Key Enumeration Operations
+
+### Get Key Size by Index
+
+Returns the byte length of the key stored at a given index position. Returns `-1` if the index is out of range (i.e., no more keys exist), which serves as the standard loop-termination signal.
+
+```
+GET /get-key-size-by-index
+```
+
+**Headers**
+
+| Header     | Required | Description                                          |
+|------------|----------|------------------------------------------------------|
+| `password` | Yes      | Root password.                                       |
+| `index`    | Yes      | Zero-based index position of the key to query.       |
+
+**Response**
+
+Returns the key size as a plain-text integer, or `-1` if the index is out of range.
+
+---
+
+### Get Key by Index
+
+Retrieves the raw key bytes stored at a given index position.
+
+```
+GET /get-key-by-index
+```
+
+**Headers**
+
+| Header     | Required | Description                                          |
+|------------|----------|------------------------------------------------------|
+| `password` | Yes      | Root password.                                       |
+| `index`    | Yes      | Zero-based index position of the key to retrieve.    |
+
+**Response**
+
+Returns the raw key bytes. The caller should first query the key size via `GET /get-key-size-by-index` to know how many bytes to expect.
+
+---
+
 ## Batch Operations
 
 ### Write Multiple Items
@@ -209,6 +274,34 @@ Returns each requested item with its key hash, format, and data payload.
       "format": "txt",
       "data": "<plain_text_data>"
     }
+  ]
+}
+```
+
+---
+
+### Delete Multiple Items
+
+Permanently removes multiple items in a single request by providing a list of key hashes.
+
+```
+DELETE /delete-items
+```
+
+**Headers**
+
+| Header     | Required | Description    |
+|------------|----------|----------------|
+| `password` | Yes      | Root password. |
+
+**Body**
+
+```json
+{
+  "items": [
+    "keyhash_1",
+    "keyhash_2",
+    "keyhash_n"
   ]
 }
 ```
